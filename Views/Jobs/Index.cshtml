@@ -1,0 +1,41 @@
+﻿@model List<TechJobPortal.Models.JobListing>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h2> @ViewData["Title"] </h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>CompanyName</th>
+            <th>Location</th>
+            <th>JobType</th>
+            <th>PostedDate</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var JobListing in Model)
+    {
+        <tr>
+                <td>@JobListing.Id</td>
+                <td>@JobListing.Title</td>
+                <td>@JobListing.CompanyName</td>
+                <td>@JobListing.Location</td>
+                <td>@JobListing.JobType</td>
+                <td>@JobListing.PostedDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@JobListing.Id" class="btn btn-warning">View</a>
+                </td>
+
+              
+        </tr>
+    }
+
+    </tbody>
+</table>
